@@ -39,7 +39,7 @@ var app = express();
     
     //view related configs
     app.set('view engine', 'ejs');
-    app.set('views', __dirname + '/view');
+    app.set('views',  __dirname + '/view');
 
 
     //logging configuration
