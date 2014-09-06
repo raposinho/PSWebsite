@@ -1,0 +1,26 @@
+*.class
+
+# Package Files #
+*.war
+*.ear
+*.log
+.classPath
+.classpath
+*classpath
+*~
+
+# Folders #
+*workspace/
+.idea
+target/
+.settings/
+.project
+.exec
+/client/experiments/experiments/testdb.lck
+/client/experiments/experiments/testdb.log
+/client/experiments/experiments/testdb.properties
+/client/experiments/experiments/testdb.script
+/relatorio/*.aux
+/relatorio/*.toc
+/relatorio/*.log
+/relatorio/*.out

@@ -1,0 +1,19 @@
+    </head>
+    <body>
+        <div class="container wrapper">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Cloudomatic</a>
+                </div>
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <% if(isLogged) { %>
+                            <li><a href="/account">Account Panel</a></li>
+                            <li><a href="/account/logout">Log Out</a></li>
+                        <% } else { %>
+                            <li><a href="/account/loginOrRegister">Sign In</a></li>
+                        <% } %>
+                    </ul>
+
+                </div>
+            </nav>

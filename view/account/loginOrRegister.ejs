@@ -1,0 +1,54 @@
+<% include ../commonHead.ejs %>
+<% include ../navBar.ejs %>
+
+    <div class="row">
+        <div class="col-md-6 row center-block">
+            <h3 class="text-center">In case you already have a account</h3>
+            <div class="col-md-offset-1 col-md-9 top-buffer">
+                <div>
+                    <% addForm(loginMessage, "logIn", "Login"); %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 row">
+            <h3 class="text-center">Register a new account</h3>
+            <div class="col-md-offset-2 col-md-9">
+                <div class="top-buffer">
+                    <% addForm(registerMessage, "register", "Register"); %>
+                </div>
+                <p class="text-tab top-buffer">
+                        This account will be used when logging in the Cloudomatic application,
+                    it will also be the password used when ciphering content, per user request.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+<%
+    function addForm(flashMessage, action, buttonMessage) {
+    if(flashMessage.length > 0) {
+        %> <div class="alert alert-danger"><%= flashMessage %></div> <%
+    }
+    %>
+        <form method="post" action="<%= action %>" class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="inputUsername" class="col-sm-2 control-label">Username</label>
+                <div class="col-sm-9 pull-right">
+                    <input type="text" name="username" class="form-control" placeholder="Username">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-9 pull-right">
+                    <input type="password" name="password" class="form-control" placeholder="Password">
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="loginSubmitButton" class="btn btn-default center-block"><%= buttonMessage%></button>
+            </div>
+        </form>
+    <%
+}%>
+<% include ../commonFooter.ejs %>

@@ -1,0 +1,43 @@
+<% include ../commonHead.ejs %>
+<% include ../navBar.ejs %>
+
+<div class="row">
+    <div class="col-md-6 top-buffer">
+        <% if(changeMessage.length > 0) {
+            console.log(isChangeError);
+            var alertType = isChangeError[0] ? 'alert-danger' : 'alert-success';
+            console.log(alertType);
+            %>
+            <div class="alert <%= alertType%>"><%= changeMessage %></div>
+        <% } %>
+        <form method="post" action="account/changePassword" class="form-horizontal" role="form">
+             <div class="form-group">
+                <label for="newPassword" class="col-sm-4 control-label pull-left">New Password</label>
+                <div class="col-sm-8 pull-right">
+                    <input type="password" name="newPassword" class="form-control" id="newPassword" placeholder="Password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="verifyPassword" class="col-sm-4 control-label pull-left">Verify New Password</label>
+                <div class="col-sm-8 pull-right">
+                    <input type="password" name="verifyPassword" class="form-control" id="verifyPassword" placeholder="Verify new Password">
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="loginSubmitButton" class="btn btn-default center-block">Change Password</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6 row">
+        <div class="col-md-offset-1 col-md-10">
+            <h3 class="text-center">Consequences</h3>
+            <p class="text-tab top-buffer">
+                By changing your password, any ciphered files that were added before this point, will need
+                user input before downloading. Messages will appear to show such situations, and through the UI
+                the necessary steps can be taken.
+            </p>
+        </div>
+    </div>
+</div>
+
+<% include ../commonFooter.ejs %>

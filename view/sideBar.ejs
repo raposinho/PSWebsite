@@ -1,0 +1,25 @@
+<% function writeMenuLevel(currentLevelName, items, currentLevel) { %>
+    <ul id="<%= viewHelper.getSubItemsId() %>" class="list-group hidden <% 'sideBar_level' + currentLevel%>">
+        <% viewHelper.addLayer(currentLevelName);
+            items.forEach(function(entry) {
+            if(!entry.subItems) { %>
+                <li id="<%= viewHelper.getHeaderId(entry.item.name) %>" class="list-group-item"><%=  entry.item.value %></li>
+            <% } else { %>
+                <li id="<%= viewHelper.getHeaderId(entry.item.name) %>" class="list-group-item"><%=  entry.item.value %><span class="glyphicon glyphicon-chevron-down pull-right"></span></li>
+                <% writeMenuLevel(entry.subItems, currentLevel + 1); %>
+            <% } %>
+        <% });
+        viewHelper.removeLayer(); %>
+    </ul>
+<% } %>
+
+<ul class="list-group sideBar_level1">
+    <% menuItems.forEach(function(entry) {
+        if(!entry.subItems) { %>
+            <li id="<%= viewHelper.getHeaderId(entry.item.name) %>" class="list-group-item"><%=  entry.item.value %></li>
+        <% } else { %>
+            <li id="<%= viewHelper.getHeaderId(entry.item.name) %>" class="list-group-item"><%=  entry.item.value %><span class="glyphicon glyphicon-chevron-down pull-right"></span></li>
+            <% writeMenuLevel(entry.item.value, entry.subItems, 2); %>
+        <% } %>
+    <% }); %>
+</ul>
