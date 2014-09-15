@@ -109,7 +109,7 @@ function startTokenRequest(req, res) {
         var items = responseFormatter.commonAuthorizationFields(req,
                                                                 'Authorization success',
                                                                 reqInfo.targetService,
-                                                                'was successful, finishing preparations');
+                                                                'was successful, application is finishing preparations');
         endResponses.html(200, items, res, 'authorization/commonAuthorization');
     }
 }
