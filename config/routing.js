@@ -35,6 +35,7 @@ function applyRoutes(router, passport) {
 
     //Downloads routes
     router.get('/downloads/startDownload', ensureHttps, downloadsController.startDownload);
+    router.get('/downloads/startDownload2', ensureHttps, downloadsController.startDownload2);
 
     //Home routes
     router.get('/', ensureHttps, homeController.index);
