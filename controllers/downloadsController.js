@@ -6,9 +6,9 @@ module.exports = {
 }
 
 function startDownload(req, res) {
-    res.setHeader('Content-disposition', 'attachment; filename=CloudomaticClient.jar');
-    res.setHeader('Content-type', 'application/java-archive');
+    res.setHeader('Content-disposition', 'attachment; filename=CloudomaticClient.zip');
+    res.setHeader('Content-type', 'application/zip');
 
     var appDir = path.dirname(require.main.filename);
-    fs.createReadStream(appDir + '/public/files/CloudomaticClient.jar').pipe(res);
+    fs.createReadStream(appDir + '/public/files/CloudomaticClient.zip').pipe(res);
 }
